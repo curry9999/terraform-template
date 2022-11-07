@@ -16,7 +16,8 @@ terraform {
 }
 
 provider "aws" {
-  region = "ap-northeast-1"
+  region  = "ap-northeast-1"
+  profile = "terraform-sso-profile"
 }
 
 resource "aws_s3_bucket" "b" {
