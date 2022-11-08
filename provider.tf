@@ -1,3 +1,8 @@
+provider "aws" {
+  region  = "ap-northeast-1"
+  profile = "terraform-sso-profile"
+}
+
 terraform {
   required_providers {
     aws = {
@@ -13,9 +18,4 @@ terraform {
       name = "mac-to-s3-backup"
     }
   }
-}
-
-provider "aws" {
-  region  = "ap-northeast-1"
-  profile = "terraform-sso-profile"
 }
