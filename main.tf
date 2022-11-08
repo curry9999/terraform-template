@@ -1,41 +1,19 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.38.0"
-    }
-  }
-  cloud {
-    organization = "curry9999"
-    hostname     = "app.terraform.io"
-
-    workspaces {
-      name = "mac-to-s3-backup"
-    }
-  }
-}
-
-provider "aws" {
-  region  = "ap-northeast-1"
-  profile = "terraform-sso-profile"
-}
-
-resource "aws_s3_bucket" "b" {
-  bucket = "my-tf-test-bucket-000000001"
+resource "aws_s3_bucket" "main" {
+  bucket = "mac-backup-bucket-000000001"
 
   tags = {
-    Name        = "My bucket"
-    Environment = "Dev"
+    Name        = "Mac to S3 Backup Bucket"
+    Environment = "Prod"
   }
 }
 
 resource "aws_s3_bucket_acl" "example" {
-  bucket = aws_s3_bucket.b.id
+  bucket = aws_s3_bucket.main.id
   acl    = "private"
 }
 
 resource "aws_s3_bucket_public_access_block" "example" {
-  bucket = aws_s3_bucket.b.id
+  bucket = aws_s3_bucket.main.id
 
   block_public_acls       = true
   block_public_policy     = true
