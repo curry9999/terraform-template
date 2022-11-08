@@ -1,9 +1,9 @@
 resource "aws_s3_bucket" "main" {
-  bucket = "my-tf-test-bucket-000000001"
+  bucket = "mac-backup-bucket-000000001"
 
   tags = {
-    Name        = "My bucket"
-    Environment = "Dev"
+    Name        = "Mac to S3 Backup Bucket"
+    Environment = "Prod"
   }
 }
 
