@@ -1,9 +1,9 @@
 resource "aws_s3_bucket" "main" {
-  bucket = "mac-backup-bucket-000000001"
+  bucket = var.s3_bucket_name
 
   tags = {
-    Name        = "Mac to S3 Backup Bucket"
-    Environment = "Prod"
+    Name        = var.s3_bucket_name
+    Environment = var.s3_bucket_env
   }
 }
 
