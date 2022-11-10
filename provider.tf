@@ -4,12 +4,6 @@ provider "aws" {
 }
 
 terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.38.0"
-    }
-  }
   cloud {
     organization = "curry9999"
     hostname     = "app.terraform.io"
