@@ -4,7 +4,7 @@ terraform {
     hostname     = "app.terraform.io"
 
     workspaces {
-      name = "mac-to-s3-backup"
+      name = "terraform-template-s3-prod"
     }
   }
 }
