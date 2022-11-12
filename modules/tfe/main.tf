@@ -1,4 +1,5 @@
 resource "tfe_workspace" "test" {
   name           = var.workspace_name
-  organization   = "curry9999"
+  organization   = var.workspace_organization_name
+  execution_mode = "local"
 }
